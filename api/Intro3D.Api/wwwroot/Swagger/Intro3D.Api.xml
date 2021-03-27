@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Intro3D.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Intro3D.Api.Controllers.StudentController">
+            <summary>
+            学生
+            </summary>
+        </member>
+        <member name="M:Intro3D.Api.Controllers.StudentController.GetAll">
+            <summary>
+            获取所有学生信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Intro3D.Api.Controllers.StudentController.CreateStudent(Intro3D.Application.ViewModels.StudentViewModel)">
+            <summary>
+            创建学生信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Intro3D.Api.Extensions.AutoMapperSetup">
+            <summary>
+            AutoMapper 的启动服务
+            </summary>
+        </member>
+    </members>
+</doc>
