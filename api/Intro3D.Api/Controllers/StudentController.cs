@@ -1,5 +1,6 @@
 ﻿using Intro3D.Application.Interfaces;
 using Intro3D.Application.ViewModels;
+using Intro3D.Domain.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -35,12 +36,27 @@ namespace Intro3D.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost(Name = nameof(CreateStudent))]
-        public ActionResult<StudentViewModel> CreateStudent([FromBody] StudentViewModel studentViewModel)
+        public ActionResult CreateStudent([FromBody] StudentViewModel studentViewModel)
         {
             try
             {
                 if (!ModelState.IsValid)
                     return Ok(ModelState.ErrorCount);
+
+
+                //添加命令验证，采用构造函数方法实例
+                RegisterStudentCommand registerStudentCommand = new RegisterStudentCommand(studentViewModel.Name, studentViewModel.Email, studentViewModel.Phone, studentViewModel.BirthDate);
+
+                if (!registerStudentCommand.IsValid())
+                {
+                    List<string> errorInfo = new List<string>();
+                    //获取到错误，请思考这个Result从哪里来的 
+                    foreach (var error in registerStudentCommand.ValidationResult.Errors)
+                    {
+                        errorInfo.Add(error.ErrorMessage);
+                    }
+                    return Ok(errorInfo);
+                }
 
                 // 执行添加方法
                 _studentAppService.Register(studentViewModel);
@@ -48,7 +64,7 @@ namespace Intro3D.Api.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return Ok(ex.Message);
             }
         }
     }

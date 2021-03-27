@@ -20,6 +20,12 @@ namespace Intro3D.Application.ViewModels
         [DisplayName("E-mail")]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "The Phone is Required")]
+        [MinLength(2)]
+        [MaxLength(100)]
+        [DisplayName("Phone")]
+        public string Phone { get; set; }
+
         [Required(ErrorMessage = "The BirthDate is Required")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
