@@ -1,7 +1,6 @@
 ﻿using Intro3D.Application.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Intro3D.Application.Interfaces
 {

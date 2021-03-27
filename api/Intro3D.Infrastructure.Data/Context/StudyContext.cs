@@ -2,10 +2,7 @@
 using Intro3D.Infrastructure.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace Intro3D.Infrastructure.Data.Context
 {

@@ -2,7 +2,6 @@
 using Intro3D.Application.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Intro3D.Api.Controllers

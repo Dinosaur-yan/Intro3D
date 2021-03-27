@@ -1,8 +1,6 @@
 ﻿using Intro3D.Domain.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Intro3D.Domain.Models
 {
@@ -16,8 +14,8 @@ namespace Intro3D.Domain.Models
     public class Address : ValueObject<Address>
     {
         public Address()
-        { 
-        
+        {
+
         }
 
         public Address(string province, string city, string county, string street)

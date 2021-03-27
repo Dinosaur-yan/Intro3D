@@ -1,4 +1,8 @@
-﻿namespace Intro3D.Domain.Core.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Intro3D.Infrastructure.Core.Models
 {
     /// <summary>
     /// 值对象基类

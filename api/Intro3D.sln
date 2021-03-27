@@ -11,17 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.infrastructure", "3.infra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.domain", "4.domain", "{787B9502-CBBF-47E6-B7DB-4EC2C8EA90C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intro3D.Api", "Intro3D.Api\Intro3D.Api.csproj", "{B082530D-6BDE-4F4C-B27C-722BADE7F58D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intro3D.Api", "Intro3D.Api\Intro3D.Api.csproj", "{B082530D-6BDE-4F4C-B27C-722BADE7F58D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intro3D.Application", "Intro3D.Application\Intro3D.Application.csproj", "{A274C6AF-C3A6-4834-960D-03F186C3999F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intro3D.Application", "Intro3D.Application\Intro3D.Application.csproj", "{A274C6AF-C3A6-4834-960D-03F186C3999F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intro3D.Infrastructure", "Intro3D.Infrastructure\Intro3D.Infrastructure.csproj", "{62C00C0E-748A-4D41-B012-708DAEA1AFBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intro3D.Infrastructure", "Intro3D.Infrastructure\Intro3D.Infrastructure.csproj", "{62C00C0E-748A-4D41-B012-708DAEA1AFBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intro3D.Infrastructure.Data", "Intro3D.Infrastructure.Data\Intro3D.Infrastructure.Data.csproj", "{EADFC0F5-4B9C-4379-B3E5-74AEAEFCB40C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intro3D.Infrastructure.Data", "Intro3D.Infrastructure.Data\Intro3D.Infrastructure.Data.csproj", "{EADFC0F5-4B9C-4379-B3E5-74AEAEFCB40C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intro3D.Domain", "Intro3D.Domain\Intro3D.Domain.csproj", "{A316A003-EFD3-4E2D-9994-DA2AE797FF13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intro3D.Domain", "Intro3D.Domain\Intro3D.Domain.csproj", "{A316A003-EFD3-4E2D-9994-DA2AE797FF13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intro3D.Domain.Core", "Intro3D.Domain.Core\Intro3D.Domain.Core.csproj", "{C06A7305-8630-4F8A-B077-83C277C7A08B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intro3D.Domain.Core", "Intro3D.Domain.Core\Intro3D.Domain.Core.csproj", "{C06A7305-8630-4F8A-B077-83C277C7A08B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

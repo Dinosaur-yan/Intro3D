@@ -1,7 +1,5 @@
 ﻿using Intro3D.Domain.Core.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Intro3D.Domain.Models
 {

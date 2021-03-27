@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Intro3D.Domain.Core.Models
+namespace Intro3D.Infrastructure.Core.Models
 {
     /// <summary>
     /// 定义领域实体基类
