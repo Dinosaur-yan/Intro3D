@@ -3,6 +3,9 @@ using Intro3D.Application.Services;
 using Intro3D.Domain.CommandHandlers;
 using Intro3D.Domain.Commands;
 using Intro3D.Domain.Core.Bus;
+using Intro3D.Domain.Core.Notifications;
+using Intro3D.Domain.EventHandlers;
+using Intro3D.Domain.Events;
 using Intro3D.Domain.Interfaces;
 using Intro3D.Infrastructure.Data.Bus;
 using Intro3D.Infrastructure.Data.Context;
@@ -29,6 +32,14 @@ namespace Intro3D.Api.Extensions
             services.AddScoped<IRequestHandler<RegisterStudentCommand, bool>, StudentCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateStudentCommand, bool>, StudentCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveStudentCommand, bool>, StudentCommandHandler>();
+
+            // 领域通知
+            services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
+
+            // 注入 领域层 - 领域事件
+            services.AddScoped<INotificationHandler<StudentRegisteredEvent>, StudentEventHandler>();
+            services.AddScoped<INotificationHandler<StudentUpdatedEvent>, StudentEventHandler>();
+            services.AddScoped<INotificationHandler<StudentRemovedEvent>, StudentEventHandler>();
 
             // 注入 领域层 - Memory
             services.AddSingleton<IMemoryCache>(factory =>

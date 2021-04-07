@@ -1,5 +1,6 @@
 ﻿using Intro3D.Domain.Core.Bus;
 using Intro3D.Domain.Core.Commands;
+using Intro3D.Domain.Core.Notifications;
 using Intro3D.Domain.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 using System;
@@ -35,14 +36,11 @@ namespace Intro3D.Domain.CommandHandlers
             List<string> errorInfo = new List<string>();
             foreach (var error in message.ValidationResult.Errors)
             {
-                errorInfo.Add(error.ErrorMessage);
+                //errorInfo.Add(error.ErrorMessage);
 
-                //将错误信息提交到事件总线，派发出去
-                //_bus.RaiseEvent(new DomainNotification("", error.ErrorMessage));
+                // 将错误信息提交到事件总线，派发出去
+                _bus.RaiseEvent(new DomainNotification("Error", error.ErrorMessage));
             }
-
-            //将错误信息收集一：缓存方法（错误示范）
-            _cache.Set("ErrorData", errorInfo);
         }
     }
 }

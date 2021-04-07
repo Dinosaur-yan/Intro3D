@@ -1,5 +1,7 @@
 ﻿using Intro3D.Domain.Commands;
 using Intro3D.Domain.Core.Bus;
+using Intro3D.Domain.Core.Notifications;
+using Intro3D.Domain.Events;
 using Intro3D.Domain.Interfaces;
 using Intro3D.Domain.Models;
 using MediatR;
@@ -36,7 +38,7 @@ namespace Intro3D.Domain.CommandHandlers
             if (!request.IsValid())
             {
                 // 错误信息收集
-                // NotifyValidationErrors(message);
+                NotifyValidationErrors(request);
                 return Task.FromResult(false);
             }
 
@@ -47,9 +49,12 @@ namespace Intro3D.Domain.CommandHandlers
 
             if (_studentRepository.GetByEmail(student.Email) != null)
             {
-                //这里对错误信息进行发布，目前采用缓存形式
-                List<string> errorInfo = new List<string>() { "该邮箱已经被使用！" };
-                _cache.Set("ErrorData", errorInfo);
+                ////这里对错误信息进行发布，目前采用缓存形式
+                //List<string> errorInfo = new List<string>() { "该邮箱已经被使用！" };
+                //_cache.Set("ErrorData", errorInfo);
+
+                //引发错误事件
+                _bus.RaiseEvent(new DomainNotification("", "该邮箱已经被使用！"));
 
                 return Task.FromResult(false);
             }
@@ -62,6 +67,7 @@ namespace Intro3D.Domain.CommandHandlers
             {
                 // 提交成功后，这里需要发布领域事件
                 // 比如欢迎用户注册邮件呀，短信呀等
+                _bus.RaiseEvent(new StudentRegisteredEvent(student.Id, student.Name, student.Email, student.Phone, student.BirthDate));
             }
 
             return Task.FromResult(true);

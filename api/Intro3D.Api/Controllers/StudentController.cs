@@ -1,6 +1,7 @@
 ﻿using Intro3D.Application.Interfaces;
 using Intro3D.Application.ViewModels;
 using Intro3D.Domain.Commands;
+using Intro3D.Domain.Core.Notifications;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,12 @@ namespace Intro3D.Api.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentAppService _studentAppService;
+        private readonly DomainNotificationHandler _notifications;
 
-        public StudentController(IStudentAppService studentAppService)
+        public StudentController(IStudentAppService studentAppService, DomainNotificationHandler notifications)
         {
             _studentAppService = studentAppService;
+            _notifications = notifications;
         }
 
         /// <summary>
@@ -63,6 +66,10 @@ namespace Intro3D.Api.Controllers
                 // 执行添加方法
                 studentViewModel.Id = Guid.NewGuid();
                 _studentAppService.Register(studentViewModel);
+
+                // 是否存在消息通知
+                if (_notifications.HasNotifications())
+                    return Ok(_notifications.GetNotifications());
 
                 return Ok(studentViewModel);
             }
