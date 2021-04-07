@@ -44,22 +44,26 @@ namespace Intro3D.Api.Controllers
                     return Ok(ModelState.ErrorCount);
 
 
-                //添加命令验证，采用构造函数方法实例
-                RegisterStudentCommand registerStudentCommand = new RegisterStudentCommand(studentViewModel.Name, studentViewModel.Email, studentViewModel.Phone, studentViewModel.BirthDate);
+                ////添加命令验证，采用构造函数方法实例
+                //RegisterStudentCommand registerStudentCommand = new RegisterStudentCommand(
+                //    studentViewModel.Name, studentViewModel.Email, studentViewModel.Phone, studentViewModel.BirthDate,
+                //    studentViewModel.Province, studentViewModel.City, studentViewModel.County, studentViewModel.Street);
 
-                if (!registerStudentCommand.IsValid())
-                {
-                    List<string> errorInfo = new List<string>();
-                    //获取到错误，请思考这个Result从哪里来的 
-                    foreach (var error in registerStudentCommand.ValidationResult.Errors)
-                    {
-                        errorInfo.Add(error.ErrorMessage);
-                    }
-                    return Ok(errorInfo);
-                }
+                //if (!registerStudentCommand.IsValid())
+                //{
+                //    List<string> errorInfo = new List<string>();
+                //    //获取到错误，请思考这个Result从哪里来的 
+                //    foreach (var error in registerStudentCommand.ValidationResult.Errors)
+                //    {
+                //        errorInfo.Add(error.ErrorMessage);
+                //    }
+                //    return Ok(errorInfo);
+                //}
 
                 // 执行添加方法
+                studentViewModel.Id = Guid.NewGuid();
                 _studentAppService.Register(studentViewModel);
+
                 return Ok(studentViewModel);
             }
             catch (Exception ex)

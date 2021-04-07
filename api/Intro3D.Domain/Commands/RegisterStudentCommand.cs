@@ -10,12 +10,16 @@ namespace Intro3D.Domain.Commands
     public class RegisterStudentCommand : StudentCommand
     {
         // set 受保护，只能通过构造函数方法赋值
-        public RegisterStudentCommand(string name, string email, string phone, DateTime birthDate)
+        public RegisterStudentCommand(string name, string email, string phone, DateTime birthDate, string province, string city, string county, string street)
         {
             Name = name;
             Email = email;
             Phone = phone;
             BirthDate = birthDate;
+            Province = province;
+            City = city;
+            County = county;
+            Street = street;
         }
 
         public override bool IsValid()

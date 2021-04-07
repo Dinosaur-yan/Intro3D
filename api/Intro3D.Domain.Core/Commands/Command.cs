@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using MediatR;
 using System;
 
 namespace Intro3D.Domain.Core.Commands
@@ -6,7 +7,7 @@ namespace Intro3D.Domain.Core.Commands
     /// <summary>
     /// 抽象命令基类
     /// </summary>
-    public abstract class Command
+    public abstract class Command : IRequest<bool>
     {
         protected Command()
         {

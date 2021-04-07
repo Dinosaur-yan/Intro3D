@@ -6,10 +6,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.13" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="3.1.13" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Intro3D.Domain.Core\Intro3D.Domain.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Events\" />
   </ItemGroup>
 
 </Project>
